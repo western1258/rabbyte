@@ -30,7 +30,6 @@
 | :--- | :--- | :--- |
 | Ethernet + alimentación.<br>DHCP prepara la conexión. | ARP descubre equipos.<br>Nmap consulta puertos, servicios y rutas. | PDF con diagrama.<br>ZIP con originales, JSON, CSV y hashes. |
 
-> **Código y configuración, sin datos privados.** Las credenciales, las redes Wi-Fi y los resultados de los experimentos se mantienen fuera de Git.
 
 ## Qué hace
 
