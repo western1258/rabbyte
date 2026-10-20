@@ -1,10 +1,36 @@
-# Rabbyte · LAN Rabbit
+<p align="center">
+  <img src="docs/assets/rabbyte-banner.svg" alt="Rabbyte · Conecta. Escanea. Descarga." width="100%">
+</p>
 
-**Conecta la Raspberry por Ethernet, espera el escaneo y descarga el reporte.**
+<p align="center">
+  <strong>Un cable. Una Raspberry. Tu red en un reporte.</strong><br>
+  Inventario de red sin pantalla, desde DHCP hasta el PDF.
+</p>
 
-Rabbyte reúne el descubrimiento de equipos, el escaneo de servicios y las rutas de traceroute en un informe PDF. Está pensado para trabajar sin pantalla: obtiene una IP por DHCP, ejecuta el proceso y publica los resultados en una página de descarga.
+<p align="center">
+  <img alt="Raspberry Pi" src="https://img.shields.io/badge/Raspberry_Pi-A22846?style=flat-square&amp;logo=raspberrypi&amp;logoColor=white">
+  <img alt="Python 3.11" src="https://img.shields.io/badge/Python-3.11-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white">
+  <img alt="Bash" src="https://img.shields.io/badge/Bash-4EAA25?style=flat-square&amp;logo=gnubash&amp;logoColor=white">
+  <img alt="Salida PDF" src="https://img.shields.io/badge/Salida-PDF_%2B_ZIP-62f5b0?style=flat-square&amp;labelColor=161b22">
+</p>
 
-El repositorio contiene el código y las configuraciones del prototipo. Las contraseñas, las redes Wi-Fi y los resultados de los experimentos se mantienen fuera de Git.
+<p align="center">
+  <a href="#de-encender-a-descargar">Cómo funciona</a> ·
+  <a href="#instalación-en-raspberry-pi-os">Instalación</a> ·
+  <a href="#uso-diario">Uso</a> ·
+  <a href="#descargar-los-resultados">Descargas</a> ·
+  <a href="#diagnóstico-rápido">Diagnóstico</a>
+</p>
+
+---
+
+**Rabbyte** convierte una Raspberry Pi en un dispositivo de inventario de red. La conectas por Ethernet, obtiene una IP por DHCP, identifica equipos y servicios, reconstruye los saltos observados y deja un **reporte PDF** listo para descargar.
+
+| 01 · Conecta | 02 · Explora | 03 · Descarga |
+| :--- | :--- | :--- |
+| Ethernet + alimentación.<br>DHCP prepara la conexión. | ARP descubre equipos.<br>Nmap consulta puertos, servicios y rutas. | PDF con diagrama.<br>ZIP con originales, JSON, CSV y hashes. |
+
+> **Código y configuración, sin datos privados.** Las credenciales, las redes Wi-Fi y los resultados de los experimentos se mantienen fuera de Git.
 
 ## Qué hace
 
@@ -34,11 +60,19 @@ flowchart TD
     I --> J[PDF + JSON + CSV + SHA256SUMS]
     J --> K[HTTP: Listo para descargar]
     K --> L[PDF o paquete completo ZIP]
+    classDef device fill:#163a2b,stroke:#3fb950,color:#e6edf3
+    classDef scan fill:#142d42,stroke:#58a6ff,color:#e6edf3
+    classDef output fill:#302443,stroke:#bc8cff,color:#e6edf3
+    class A,B,C device
+    class D,E,F,G,H,I scan
+    class J,K,L output
 ```
 
 El servidor de descargas es independiente del escáner. Puede seguir atendiendo la página mientras el experimento está en curso. La página se actualiza cada cinco segundos y distingue **Esperando resultados**, **Proceso en curso** y **Listo para descargar**.
 
 ## Organización del repositorio
+
+Cada módulo tiene una tarea concreta; el orquestador conecta las piezas.
 
 ```text
 rabbyte/
@@ -83,6 +117,9 @@ El despliegue actual utiliza el usuario `pi` y estas rutas:
 `lan-rabbit/` y `rabbyte/` son **carpetas hermanas**. El orquestador calcula sus rutas con esa estructura. El nombre del repositorio en GitHub no cambia las rutas del despliegue.
 
 ## Instalación en Raspberry Pi OS
+
+<details>
+<summary><strong>Desplegar Rabbyte en una Raspberry nueva</strong> — dependencias, DHCP, autenticación y servicios</summary>
 
 Las instrucciones asumen el usuario `pi`, NetworkManager, `eth0` para Ethernet y systemd. Si usas otro usuario o ubicación, adapta las unidades de servicio y sus rutas antes de instalarlas.
 
@@ -181,6 +218,10 @@ sudo systemctl start --no-block lan-rabbit.service
 ```
 
 **Una ejecución nueva borra los originales y los reportes anteriores.** Descarga lo que necesites conservar antes de iniciarla.
+
+</details>
+
+---
 
 ## Uso diario
 
@@ -323,3 +364,7 @@ sh -n config/NetworkManager/90-lan-rabbit
 ```
 
 GitHub Actions ejecuta estas mismas comprobaciones. Para probar la integración real se necesita la Raspberry, permisos de escaneo y el laboratorio conectado.
+
+---
+
+<p align="center"><strong>RABBYTE</strong> · Proyecto LAN Rabbit<br><sub>De la conexión al inventario, sin pantalla.</sub></p>
