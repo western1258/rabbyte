@@ -1,0 +1,19 @@
+name: Validar código
+on: [push, pull_request]
+jobs:
+  revisar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Sintaxis Bash
+        run: |
+          bash -n lan-rabbit/orquestador.sh
+          bash -n rabbyte/escaner.sh
+          sh -n config/NetworkManager/90-lan-rabbit
+      - name: Sintaxis Python
+        run: python -m compileall -q lan-rabbit scripts tests
+      - name: Rutas de traceroute
+        run: python -m unittest discover -s tests -v

@@ -1,0 +1,5 @@
+#!/bin/sh
+case "$1:$2" in
+    eth0:up) systemctl --no-block start lan-rabbit.service ;;
+    eth0:down) systemctl --no-block stop lan-rabbit.service ;;
+esac

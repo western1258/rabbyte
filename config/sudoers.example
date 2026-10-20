@@ -1,0 +1,3 @@
+# Solo para el escaneo automático por Ethernet con límite de una hora.
+pi ALL=(root) NOPASSWD: /usr/bin/true
+pi ALL=(root) NOPASSWD: /usr/bin/env IFACE=eth0 timeout --signal=TERM --kill-after=15s 3600s bash escaner.sh

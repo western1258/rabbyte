@@ -1,0 +1,12 @@
+[Unit]
+Description=Descarga HTTP del resultado unico LAN Rabbit
+[Service]
+Type=simple
+WorkingDirectory=%h/lan-rabbit
+ExecStart=/usr/bin/python3 %h/lan-rabbit/servidor_resultados.py --directorio %h/lan-rabbit/resultados --bind 0.0.0.0 --puerto 8080 --http-pruebas --auth-file %h/lan-rabbit/config/descargas_auth.json
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+UMask=0027
+[Install]
+WantedBy=default.target
