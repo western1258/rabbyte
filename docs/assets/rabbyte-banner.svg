@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-labelledby="title desc">
+<title id="title">Rabbyte — LAN Rabbit</title><desc id="desc">Identidad del proyecto: conejo de líneas y rutas de red sobre un fondo oscuro.</desc>
+<defs><pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#20303d" stroke-width="0.7"/></pattern><linearGradient id="glow"><stop stop-color="#62f5b0"/><stop offset="1" stop-color="#61d8f5"/></linearGradient></defs>
+<rect width="1280" height="320" rx="18" fill="#0d1117"/><rect width="1280" height="320" rx="18" fill="url(#grid)" opacity=".65"/>
+<path d="M0 319H1280" stroke="url(#glow)" stroke-width="3"/>
+<g transform="translate(64 58)" fill="none" stroke="#62f5b0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M31 98C13 62 9 12 27 10C45 8 54 54 59 79M71 78C75 42 91 9 108 17C126 26 107 65 98 90"/>
+<path d="M36 91C15 101 11 126 24 145C40 170 90 177 116 153C139 132 124 98 99 88C82 80 54 81 36 91Z"/>
+<path d="M59 132L67 139L75 132M67 139V147"/><circle cx="43" cy="115" r="3" fill="#62f5b0"/><circle cx="91" cy="115" r="3" fill="#62f5b0"/>
+<path d="M117 124H151V162H184" stroke="#61d8f5"/><circle cx="192" cy="162" r="7" stroke="#61d8f5"/>
+</g>
+<text x="290" y="105" fill="#62f5b0" font-family="monospace" font-size="14" letter-spacing="4">RASPBERRY PI / NETWORK INVENTORY</text>
+<text x="284" y="185" fill="#f0f6fc" font-family="monospace" font-weight="700" font-size="76" letter-spacing="5">RABBYTE</text>
+<text x="290" y="225" fill="#9daebe" font-family="monospace" font-size="18">Conecta. Escanea. Descarga.</text>
+<g fill="none" stroke="#61d8f5" stroke-width="2" opacity=".8">
+<path d="M992 94V226M992 112H1080M992 160H1140M992 208H1080"/>
+<circle cx="992" cy="78" r="9" fill="#0d1117"/><circle cx="1094" cy="112" r="9" fill="#0d1117"/><circle cx="1154" cy="160" r="9" fill="#0d1117"/><circle cx="1094" cy="208" r="9" fill="#0d1117"/>
+</g><text x="970" y="264" fill="#617485" font-family="monospace" font-size="12">ARP → NMAP → PDF</text>
+</svg>
